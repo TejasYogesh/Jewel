@@ -1,8 +1,10 @@
 import React from "react";
-
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8 p-4">
+    <footer className="bg-gray-900 text-white py-8 px-4">
       <div className="container mx-auto flex flex-wrap justify-between">
         {/* LuxeGems Section */}
         <div className="w-full md:w-1/4 mb-6 md:mb-0">
@@ -45,13 +47,13 @@ const Footer = () => {
           <h2 className="text-xl font-bold mb-2">Follow Us</h2>
           <div className="flex space-x-4">
             <a href="#" className="hover:underline">
-              <i className="fab fa-instagram"></i>
+            <FaFacebook />
             </a>
             <a href="#" className="hover:underline">
-              <i className="fab fa-facebook"></i>
+            <FaInstagram />
             </a>
             <a href="#" className="hover:underline">
-              <i className="fab fa-pinterest"></i>
+            <FaWhatsapp />
             </a>
           </div>
         </div>
