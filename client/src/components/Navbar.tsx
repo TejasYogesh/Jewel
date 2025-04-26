@@ -1,39 +1,36 @@
 import React from "react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
-        <nav className="bg-white shadow-md">
+        <nav className="bg-white shadow-md sticky top-0 z-10">
             <div className="container mx-auto px-4 py-2 flex justify-between items-center">
                 {/* Logo Section */}
                 <div className="flex items-center">
-                    <img src="Frame.png" alt="" className="m-2" />
+                    <img src="Frame.png" alt="Logo" className="m-2" />
                     <span className="text-blue-600 text-xl font-bold">JewelCraft</span>
                 </div>
 
                 {/* Navigation Links */}
                 <div className="flex space-x-10">
-                    <a href="#" className="text-gray-700 hover:text-blue-600">
+                    <Link to="/" className="text-gray-700 hover:text-blue-600">
                         Home
-                    </a>
-                    <a href="#" className="text-gray-700 hover:text-blue-600">
+                    </Link>
+                    <Link to="/collection" className="text-gray-700 hover:text-blue-600">
                         Collections
-                    </a>
-                    <a href="#" className="text-gray-700 hover:text-blue-600">
+                    </Link>
+                    <Link to="/about" className="text-gray-700 hover:text-blue-600">
                         About
-                    </a>
-
-                    <a href="#" className="text-gray-700 hover:text-blue-600">
+                    </Link>
+                    <Link to="/services" className="text-gray-700 hover:text-blue-600">
                         Services
-                    </a>
-
-                    <a href="#" className="text-gray-700 hover:text-blue-600">
+                    </Link>
+                    <Link to="/customize-design" className="text-gray-700 hover:text-blue-600">
                         Customize Jewellery Design
-                    </a>
-
-                    <a href="#" className="text-gray-700 hover:text-blue-600">
+                    </Link>
+                    <Link to="/rental-design" className="text-gray-700 hover:text-blue-600">
                         Rental a Jewellery Design
-                    </a>
-
+                    </Link>
                 </div>
 
                 {/* Icons Section */}
