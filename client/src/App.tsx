@@ -13,6 +13,7 @@ import Category from './Pages/Category';
 import Parts from './Pages/Parts';
 import Payment from './Pages/Payment';
 import About from './Pages/About';
+import YourOrders from './Pages/YourOrders';
 function App() {
   return (
     <Router>
@@ -30,6 +31,7 @@ function App() {
         <Route path="/parts" element={<Parts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path='/about' element={<About />} />
+        <Route path='/yourorders' element={<YourOrders/>}/>
       </Routes>
     </Router>
   );
