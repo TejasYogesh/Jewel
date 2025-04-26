@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from '@/components/Navbar';
+import {useNavigate } from 'react-router-dom';
+
 const CustomDesign = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -23,10 +26,13 @@ const CustomDesign = () => {
         try {
             await axios.post('http://localhost:5000/api/designs', formData);
             alert('Form submitted successfully!');
+            navigate("/")
+            
         } catch (error) {
             console.error('Error submitting form:', error);
         }
     };
+    
 
     return (
         <div>
@@ -35,7 +41,7 @@ const CustomDesign = () => {
             <div className='grid grid-cols-2 gap-6 rounded-3xl'>
                 <div className='rounded-br-2xl rounded-tr-2xl'>
                     <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-lg mx-4 my-4 w-[50vw] items-center rounded-br-2xl rounded-tr-2xl">
-                        <h2 className="text-2xl font-bold mb-6">Custom Jewelry Design Form</h2>
+                        <h2 className="text-4xl font-bold mb-6">Custom Jewelry Design</h2>
                         <div className="mb-4">
                             <label className="block text-gray-700">First Name</label>
                             <input
@@ -121,7 +127,7 @@ const CustomDesign = () => {
                     </form>
                 </div>
                 <div className='bg-pink-500 my-4 mr-4 rounded-br-2xl rounded-tr-2xl flex items-center justify-center'>
-                    <p className='text-white font-bold text-3xl'>Customize your Design | Enter the Details</p>
+                    <p className='text-white font-bold text-3xl'>Customize your Design | Exclusive @JewelCraft</p>
                 </div>
             </div>
         </div>
