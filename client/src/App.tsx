@@ -14,6 +14,8 @@ import Parts from './Pages/Parts';
 import Payment from './Pages/Payment';
 import About from './Pages/About';
 import YourOrders from './Pages/YourOrders';
+import BuyNow from './Pages/BuyNow';
+import BuySet from './Pages/BuySet'
 function App() {
   return (
     <Router>
@@ -32,6 +34,8 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path='/about' element={<About />} />
         <Route path='/yourorders' element={<YourOrders/>}/>
+        <Route path="/buy/:id" element={<BuyNow />} />
+        <Route path="/buyset/:id" element={<BuySet />} />
       </Routes>
     </Router>
   );

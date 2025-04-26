@@ -5,6 +5,7 @@ import Category from "./Category";
 import Parts from "./Parts"
 import Footer from "@/components/Footer";
 import  ImageCarousel  from "@/components/Carousel";
+import { Button } from "@/components/ui/button";
 const Home = () => {
     return (
         <div>
@@ -15,8 +16,10 @@ const Home = () => {
             <br />
             <Parts />
             <br />
+            <Button className="m-8 p-4">Logout</Button>
+            <br/>
             <Footer />
-
+         
         </div>
     );
 };
