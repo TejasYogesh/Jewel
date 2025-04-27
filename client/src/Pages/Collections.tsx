@@ -5,21 +5,34 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Loading from "@/components/Loading";
-// import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-const Collections = () => {
+// Import Framer Motion
+import { motion } from "framer-motion";
 
+const Collections = () => {
     const [isLoading, setIsLoading] = useState(true);
-    // const navigate = useNavigate();
+
     useEffect(() => {
-        // Simulate a 3-second loading state
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, 1500);
 
-        return () => clearTimeout(timer); // Cleanup the timer
+        return () => clearTimeout(timer);
     }, []);
 
+    // Animation variants for the card
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: (index) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: index * 0.2, // Staggered animation for each card
+                duration: 0.2,
+                ease: "easeOut",
+            },
+        }),
+    };
 
     return (
         <div>
@@ -34,7 +47,14 @@ const Collections = () => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
                     {products.map((product, index) => (
-                        <div key={index} className="bg-white shadow-md rounded-md p-4">
+                        <motion.div
+                            key={index}
+                            className="bg-white shadow-md rounded-md p-4"
+                            custom={index} // Pass the index for staggered animation
+                            initial="hidden"
+                            animate="visible"
+                            variants={cardVariants}
+                        >
                             <img
                                 src={product.productImage}
                                 alt={product.title}
@@ -46,23 +66,20 @@ const Collections = () => {
                                     <li key={i} className="list-disc list-inside">
                                         {item}
                                     </li>
-
                                 ))}
-                                <Link to={`/buyset/${product.id}`}>
-                                    <Button className="my-4 w-full bg-pink-500 hover:bg-pink-600 text-white">
-                                        Buy set
-                                    </Button>
-                                </Link>
-
                             </ul>
-                        </div>
+                            <Link to={`/buyset/${product.id}`}>
+                                <Button className="my-4 w-full bg-pink-500 hover:bg-pink-600 text-white">
+                                    Buy set
+                                </Button>
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             )}
 
             <Footer />
         </div>
-
     );
 };
 
