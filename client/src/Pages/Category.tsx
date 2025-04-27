@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { products2 } from "@/data/products2";
+import Typography from "@/components/Typography";
 
 export default function Category() {
   return (
@@ -8,7 +9,7 @@ export default function Category() {
       <div className="p-6">
         {/* Search Bar */}
         <div className="mb-10 text-center">
-          <h1 className="text-4xl font-bold mb-4">Find Your Perfect Jewelry</h1>
+          <h1 className="text-4xl font-bold mb-4"><Typography /></h1>
           <input
             type="text"
             placeholder="Search for jewelry..."
@@ -44,8 +45,8 @@ export default function Category() {
                 <motion.img
                   src={category.image}
                   alt={category.name}
-                  className="w-full h-48 object-cover rounded-md mb-4 hover:scale-105 transition-all duration-200 ease-in-out"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="w-full h-48 rounded-md mb-4 hover:scale-105 transition-all duration-200 ease-in-out "
+                  initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 />
