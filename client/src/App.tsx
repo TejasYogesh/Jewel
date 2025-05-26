@@ -16,13 +16,17 @@ import About from './Pages/About';
 import YourOrders from './Pages/YourOrders';
 import BuyNow from './Pages/BuyNow';
 import BuySet from './Pages/BuySet'
+import Success from './Pages/success';
+import Register from './Pages/Register';
 function App() {
   return (
     <Router>
       <Routes>
         {/* Define Routes */}
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} /> {/* Add this line */}
         <Route path="/intro" element={<Intro />} />
+        <Route path="/Register" element={<Register />} />
         <Route path="/customDesign" element={<CustomDesign />} />
         <Route path="/nearby" element={<Nearby />} />
         <Route path="/location" element={<Location />} />
@@ -32,10 +36,12 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/parts" element={<Parts />} />
         <Route path="/payment" element={<Payment />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/Contact' element={<About />} />
         <Route path='/yourorders' element={<YourOrders/>}/>
         <Route path="/buy/:id" element={<BuyNow />} />
         <Route path="/buyset/:id" element={<BuySet />} />
+        <Route path="/success" element={<Success/>} />
+        {/* Add more routes as needed */}
       </Routes>
     </Router>
   );

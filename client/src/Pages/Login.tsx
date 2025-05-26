@@ -1,103 +1,68 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
 import axios from "axios";
 
 const Login = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [error, setError] = useState("");
-
-  const handleChange = (e) => {
+  // Tailwind CSS styles for the login form
+  // You can also extract these to a separate className variable if preferred
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/user/saveUser", formData);
-      alert(response.data.message);
-      navigate("/"); // Redirect to the home screen after successful submission
+      const response = await axios.post("http://localhost:5000/api/user/login", formData);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      navigate("/");
+      console.log(localStorage.getItem("user"));
     } catch (error) {
-      console.error("Error saving user data:", error);
+      alert("Invalid credentials");
     }
   };
-
-
+  const formClass =
+    "max-w-md mx-auto mt-24 p-10 rounded-2xl shadow-2xl flex flex-col gap-6 border border-blue-100";
+  const inputClass =
+    "border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-gray-700 bg-gray-50 placeholder-gray-400";
+  const buttonClass =
+    "bg-blue-600 text-white rounded-lg px-4 py-3 hover:bg-blue-700 transition-colors font-semibold shadow-md mt-2";
+  const headingClass =
+    "text-3xl font-bold text-center text-blue-700 mb-4 tracking-tight";
+  const linkClass =
+    "text-blue-600 hover:underline font-medium";
   return (
-    <div>
-      <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-2 h-[95vh]">
-        {/* Left Section */}
-        <div className="relative bg-gradient-to-br from-pink-300 via-purple-200 to-purple-400 flex items-center justify-center">
-          <div className="text-center px-4">
-            <img
-              src="img.png"
-              alt="Luxury Rings"
-              className="rounded-md shadow-lg m-4 h-[75vh]"
-            />
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <div className="flex items-center justify-center bg-white">
-          <div className="w-full max-w-md">
-            <h2 className="text-2xl font-bold text-gray-800 text-center">
-              Welcome Back
-            </h2>
-            <p className="text-gray-600 text-center mb-6">
-              Please sign in to your account
-            </p>
-            <form onSubmit={handleSubmit}>
-              {/* Email Input */}
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:outline-none"
-                />
-              </div>
-
-              {/* Password Input */}
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-blue-500 focus:outline-none"
-                />
-              </div>
-
-              {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-              {/* Sign In Button */}
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-              >
-                Sign In
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit} className={formClass}>
+      <h2 className={headingClass}>Login | Jewelry.com</h2>
+      <input
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email"
+        className={inputClass}
+        autoComplete="email"
+      />
+      <input
+        name="password"
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Password"
+        className={inputClass}
+        autoComplete="current-password"
+      />
+      <button type="submit" className={buttonClass}>
+        Login
+      </button>
+      <p className="text-center text-gray-600">
+        Don't have an account?{" "}
+        <a href="/register" className={linkClass}>
+          Register
+        </a>
+      </p>
+    </form>
   );
 };
 

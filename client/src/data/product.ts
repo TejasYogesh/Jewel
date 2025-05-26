@@ -9,6 +9,8 @@ export const products = [
       "Jimikki Earrings",
       "Oddiyanam",
     ],
+    cost: "₹5000",
+    // rentalCost: "₹1000",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ export const products = [
       "Nose Rings (Nath)",
       "Ghungroo Anklets",
     ],
+    cost: "₹5000",
+    // rentalCost: "₹1000",
   },
   {
     id: 3,
@@ -31,6 +35,8 @@ export const products = [
       "Matha Patti",
       "Bell-shaped Ghungroo",
     ],
+    cost: "₹5000",
+    // rentalCost: "₹1000",
   },
   {
     id: 4,
@@ -42,6 +48,8 @@ export const products = [
       "Decorated Belt",
       "Flower Garlands",
     ],
+    cost: "₹5000",
+    // rentalCost: "₹1000",
   },
   {
     id: 5,
@@ -53,6 +61,8 @@ export const products = [
       "Mulla Mottu Mala",
       "Traditional Bangles",
     ],
+    cost: "₹5000",
+    // rentalCost: "₹1000",
   },
   {
     id: 6,
@@ -64,5 +74,7 @@ export const products = [
       "Heritage Collection",
       "Divine Craftsmanship",
     ],
+    cost: "₹5000",
+    // rentalCost: "₹1000",
   },
 ];

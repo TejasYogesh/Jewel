@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { products } from "@/data/product";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 const BuySet = () => {
 
 
@@ -32,9 +33,13 @@ const BuySet = () => {
             </li>
           ))}
         </ul>
-        <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white py-2">
-          Buy Now
-        </Button>
+
+        <Link to="/payment">
+          <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white py-2">
+            Buy Now
+          </Button>
+        </Link>
+
       </div>
     </div>
   );

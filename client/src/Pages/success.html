@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Successful</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #f6fff8;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .success-container {
+            background: #fff;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .checkmark {
+            font-size: 3rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            margin: 0.5rem 0;
+            color: #222;
+        }
+        p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        .home-link {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: #27ae60;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .home-link:hover {
+            background: #219150;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="checkmark">&#10004;</div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for your purchase.<br>Your payment has been processed successfully.</p>
+        <a class="home-link" href="/">Go to Home</a>
+    </div>
+</body>
+</html>

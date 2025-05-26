@@ -1,8 +1,14 @@
 import React from "react";
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+    const navigate = useNavigate();
+    const logout = () => {
+        localStorage.removeItem("user");
+        navigate("/login");
+    };
     return (
+
         <nav className="bg-white shadow-md sticky top-0 z-10">
             <div className="container mx-auto px-4 py-2 flex justify-between items-center">
                 {/* Logo Section */}
@@ -19,8 +25,8 @@ const Navbar = () => {
                     <Link to="/collection" className="text-gray-700 hover:text-blue-600">
                         Collections
                     </Link>
-                    <Link to="/about" className="text-gray-700 hover:text-blue-600">
-                        About
+                    <Link to="/Contact" className="text-gray-700 hover:text-blue-600">
+                        Contact Us
                     </Link>
                     <Link to="/services" className="text-gray-700 hover:text-blue-600">
                         Services
@@ -31,6 +37,9 @@ const Navbar = () => {
                     <Link to="/second" className="text-gray-700 hover:text-blue-600">
                         Rental a Jewellery Design
                     </Link>
+                    <button onClick={logout} className="text-gray-700 hover:text-blue-600">
+                        Logout
+                    </button>
                 </div>
 
                 {/* Icons Section */}
