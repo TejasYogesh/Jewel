@@ -17,7 +17,7 @@ const Login = () => {
     try {
       const response = await axios.post("http://localhost:5000/api/user/login", formData);
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      navigate("/");
+      navigate("/home");
       console.log(localStorage.getItem("user"));
     } catch (error) {
       alert("Invalid credentials");

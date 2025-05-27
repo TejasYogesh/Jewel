@@ -15,16 +15,23 @@ import Payment from './Pages/Payment';
 import About from './Pages/About';
 import YourOrders from './Pages/YourOrders';
 import BuyNow from './Pages/BuyNow';
-import BuySet from './Pages/BuySet'
+import BuySet from './Pages/BuySet';
 import Success from './Pages/success';
 import Register from './Pages/Register';
+import RequireAuth from './Pages/RequireAuth';
+import { Navigate } from 'react-router-dom';
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Define Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} /> {/* Add this line */}
+        {/* Redirect root path to /home */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={
+          <RequireAuth>
+            <Home />
+          </RequireAuth>
+        } />
+        {/* <Route path="/home" element={<Home />} /> Add this line */}
         <Route path="/intro" element={<Intro />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/customDesign" element={<CustomDesign />} />
@@ -37,10 +44,10 @@ function App() {
         <Route path="/parts" element={<Parts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path='/Contact' element={<About />} />
-        <Route path='/yourorders' element={<YourOrders/>}/>
+        <Route path='/yourorders' element={<YourOrders />} />
         <Route path="/buy/:id" element={<BuyNow />} />
         <Route path="/buyset/:id" element={<BuySet />} />
-        <Route path="/success" element={<Success/>} />
+        <Route path="/success" element={<Success />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>
