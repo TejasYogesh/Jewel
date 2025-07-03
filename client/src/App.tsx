@@ -18,6 +18,8 @@ import BuyNow from './Pages/BuyNow';
 import BuySet from './Pages/BuySet';
 import Success from './Pages/success';
 import Register from './Pages/Register';
+import Services from './Pages/Services';
+import Cart from './Pages/Cart';
 import RequireAuth from './Pages/RequireAuth';
 import { Navigate } from 'react-router-dom';
 function App() {
@@ -48,6 +50,8 @@ function App() {
         <Route path="/buy/:id" element={<BuyNow />} />
         <Route path="/buyset/:id" element={<BuySet />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/Services" element={<Services/>}/>
+        <Route path="/Cart" element={<Cart/>}/>
         {/* Add more routes as needed */}
       </Routes>
     </Router>

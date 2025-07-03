@@ -4,7 +4,25 @@ import Navbar from "@/components/Navbar";
 import ImageCarousel from "@/components/Carousel";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import axios from "axios";
+
 const Second = () => {
+    
+   const handleAddToCart = async (product: any) => {
+  try {
+    await axios.post("http://localhost:5000/api/addToCart", {
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+    });
+    alert("Item added to cart!");
+  } catch (error) {
+    alert("Failed to add item to cart.");
+  }
+};
+
     return (
         <div>
             <Navbar />
@@ -34,7 +52,15 @@ const Second = () => {
                                 <button className="bg-pink-500 text-white w-full py-2 mt-4 rounded-lg hover:bg-pink-600">
                                     Buy Now
                                 </button>
+
                             </Link>
+
+                            <button
+                                className="bg-blue-950 text-white w-full py-2 mt-4 rounded-lg hover:bg-blue-800"
+                                onClick={() => handleAddToCart(product)}
+                            >
+                                Add to Cart
+                            </button>
 
                         </div>
                     ))}

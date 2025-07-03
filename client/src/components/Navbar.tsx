@@ -29,7 +29,7 @@ const Navbar = () => {
                         Contact Us
                     </Link>
                     <Link to="/services" className="text-gray-700 hover:text-blue-600">
-                        Services
+                        Services nearby
                     </Link>
                     <Link to="/customDesign" className="text-gray-700 hover:text-blue-600">
                         Customize Jewellery Design
@@ -63,22 +63,9 @@ const Navbar = () => {
                             ></path>
                         </svg>
                     </button>
-                    <button className="text-gray-700 hover:text-blue-600">
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 3h18l-1 14H4L3 3zm3 4h12m-6 4v6"
-                            ></path>
-                        </svg>
-                    </button>
+                     <div>
+                        <Link to={'/Cart'}>My Cart</Link>
+                     </div>
                 </div>
             </div>
         </nav>
